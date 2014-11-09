@@ -18,6 +18,12 @@ app.use(express.static('.'));
 // Listen.
 server.listen(process.env.PORT || 3000);
 
+// Log when server is started.
+server.on('listening', function () {
+  console.log('Listening on port %d.', server.address().port);
+  console.log('http://localhost:%d/', server.address().port);
+});
+
 // Create board.
 var board = new five.Board();
 
